@@ -1,0 +1,23 @@
+[package]
+name = "getty_hierarchy"
+version = "0.1.0"
+authors = ["Alessio Molinari <alessio.molinari@isti.cnr.it>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "getty_hierarchy"
+crate-type = ["cdylib"]
+
+
+[dependencies]
+rio_api = "*"
+rio_turtle = "*"
+regex = "*"
+lazy_static = "*"
+bincode = "1.2.1"
+
+[dependencies.pyo3]
+version = "0.8.5"
+features = ["extension-module"]
