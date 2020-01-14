@@ -26,7 +26,7 @@ and run:
 `pip install getty_hierarchy-1.0.0-cp3x-cp3xm-manylinux1_x86_64.whl`  
 
 At the moment, the repository hosts Linux wheels only, but I'm planning to release for other platforms as well
-(see [Building from source](#Building from source) if you need
+(see [Building from source](#building-from-source) if you need
 the package for another platform in the meantime).  
   
 ### Usage
@@ -51,7 +51,7 @@ hierarchy = getty_hierarchy.Hierarchy.from_custom_pickled(
 ```
 The first argument is the path to the pickled hierarchy map, whereas the second is the path to 
 the pickled term-label map: these can be generated with the 
-binary executable offered in this repository (see [Using the executable](#Using the executable)).  
+binary executable offered in this repository (see [Using the executable](#using-the-executable)).  
 Furthermore, you can pass an empty string as the second argument if you don't need the term-label map. 
   
 Once the `Hierarchy` class is constructed, you can use two methods:  
@@ -76,7 +76,7 @@ hierarchy.get_parents(300073708)
 ```
 The *religions* term has two parents in the AAT hierarchy, whose ids are `300055980` and `300389850`; as you may notice,
 the resulting list in the Python code is actually a list of lists:  
-the preferred parent (more info in the [How the hierarchy is built](#How the hierarchy is built) section) comes 
+the preferred parent (more info in the [How the hierarchy is built](#how-the-hierarchy-is-built) section) comes 
 first and the other parents come afterwards (with no specific order). This means that the first list in our 
 example contains the "preferred" hierarchy (eg. what is listed [here](http://www.getty.edu/vow/AATFullDisplay?find=300073708&logic=AND&note=&english=N&prev_page=1&subjectid=300073708)
 under *Hierarchical position*) and the second list holds what is listed [here](http://www.getty.edu/vow/AATFullDisplay?find=300073708&logic=AND&note=&english=N&prev_page=1&subjectid=300073708)
@@ -96,7 +96,7 @@ hierarchy.get_node_label(300053049)
 **Notice**: this will output an empty string in case you constructed the `Hierarchy` class with the 
 `from_custom_pickled` static method and passed an empty string as the second argument. 
 
-## Building from source
+## [Building from source](#building-from-source)
 In order to build from source you will need to install the Rust nightly toolchain: see [here](https://www.rust-lang.org/learn/get-started)
 for how to install Rust and [here](https://doc.rust-lang.org/book/appendix-07-nightly-rust.html#rustup-and-the-role-of-rust-nightly)
 for how to use the nightly toolchain.  
@@ -111,7 +111,7 @@ To build the Python module, I recommend using [Maturin](https://github.com/PyO3/
 
 you will find the Python wheels in `target/wheels/`.
 
-## Using the executable
+## [Using the executable](#using-the-executable)
 Download the `getty_hierarchy_bin` file you can find in the `binaries` directory at the root of this repository 
 (or build it). You can list all the options by running:  
 
@@ -146,7 +146,7 @@ extract it. Then you can run:
 This will probably take a minute or two and will output the two pickled files `bincoded_hierarchy.bin` and
 `bincoded_termmap.bin`.
 
-## How the hierarchy is built
+## [How the hierarchy is built](#how-the-hierarchy-is-built)
 The hierarchy map is built by parsing the NTriples dump available on the Getty website.
 The parents of any term are retrieved using the http://vocab.getty.edu/ontology#broader property.  
 If any term has more than one parent, the preferred parent (retrieved via the http://vocab.getty.edu/ontology#broaderPreferred 
