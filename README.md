@@ -14,7 +14,8 @@ to call the Getty API every time.
 ## Little disclaimer
 Notice that we use term or node as synonyms. I am nowhere near an expert of Getty's vocabularies nor an expert of the 
 Linked Open Data format and this project was born as a weekend project, since I needed to reconstruct the hierarchy of 
-labels used in a dataset (calling the web API proved to be quite expensive for a large number of labels).
+labels used in a dataset (calling the web API proved to be quite expensive for a large number of labels).  
+Furthermore, this project is in **no way** linked with or supported by the Getty vocabularies project.
   
 ## The Python module
 ### Installing
