@@ -17,6 +17,7 @@ rio_turtle = "*"
 regex = "*"
 lazy_static = "*"
 bincode = "1.2.1"
+serde = "*"
 
 [dependencies.pyo3]
 version = "0.8.5"
