@@ -26,7 +26,7 @@ and run:
 
 `pip install getty_hierarchy-1.0.0-cp3x-cp3xm-manylinux1_x86_64.whl`  
 
-At the moment, the repository hosts Linux wheels only, but I'm planning to release for other platforms as well
+At the moment, the repository hosts Linux and MacOS wheels only, but I'm planning to release for Windows as well
 (see [Building from source](#building-from-source) if you need
 the package for another platform in the meantime).  
   
