@@ -36,9 +36,9 @@ impl Hierarchy {
         }
     }
 
-    fn get_parents(&self, py: Python<'_>, node_id: u32) -> PyResult<PyObject> {
+    fn get_parents(&self, py: Python<'_>, node_id: u32, preferred_only: bool) -> PyResult<PyObject> {
         let mut parents = Vec::new();
-        self.map.get_parents(node_id, &mut parents);
+        self.map.get_parents(node_id, &mut parents, preferred_only);
         let object = Parent::Nodes(parents).to_object(py);
         Ok(object)
     }

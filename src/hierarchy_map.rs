@@ -74,11 +74,11 @@ impl HierarchyMap {
         HierarchyMap { map }
     }
 
-    pub fn get_parents(&self, node: u32, parents: &mut Vec<Parent>) {
+    pub fn get_parents(&self, node: u32, parents: &mut Vec<Parent>, preferred_only: bool) {
         if let Some(this_parents) = self.map.get(&node) {
-            if this_parents.len() == 1 {
+            if this_parents.len() == 1 || preferred_only {
                 parents.push(Parent::Node(this_parents[0]));
-                self.get_parents(this_parents[0], parents);
+                self.get_parents(this_parents[0], parents, preferred_only);
             } else {
                 for parent in this_parents {
                     parents.push(Parent::Nodes(vec![Parent::Node(*parent)]));
@@ -86,7 +86,7 @@ impl HierarchyMap {
                     // AFAIK Rust doesn't allow us to cast the enum into its value without
                     // pattern matching, so we're pretty obliged to do this check here
                     if let Parent::Nodes(val) = parents.last_mut().unwrap() {
-                        self.get_parents(*parent, val);
+                        self.get_parents(*parent, val, preferred_only);
                     }
                 }
             }
@@ -97,6 +97,7 @@ impl HierarchyMap {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::utils::load_nt_map_from_file;
 
     #[test]
     fn test_display_parent() {
@@ -119,3 +120,5 @@ mod tests {
         assert_eq!("[1, [2, [3, 4, ]]]", s);
     }
 }
+
+// TODO 300212545 and 300036794 are weirdly related

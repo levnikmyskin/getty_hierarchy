@@ -1,6 +1,6 @@
 [package]
 name = "getty_hierarchy"
-version = "0.1.0"
+version = "1.1.0"
 authors = ["Alessio Molinari <alessio.molinari@isti.cnr.it>"]
 edition = "2018"
 
@@ -21,4 +21,7 @@ serde = "*"
 
 [dependencies.pyo3]
 version = "0.8.5"
-features = ["extension-module"]
+
+[features]
+extension-module = ["pyo3/extension-module"]
+default = ["extension-module"]
