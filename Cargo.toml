@@ -10,6 +10,9 @@ edition = "2018"
 name = "getty_hierarchy"
 crate-type = ["cdylib"]
 
+[[bin]]
+name = "getty_hierarchy_bin"
+path = "src/bin.rs"
 
 [dependencies]
 rio_api = "*"
@@ -18,6 +21,7 @@ regex = "*"
 lazy_static = "*"
 bincode = "1.2.1"
 serde = "*"
+clap = "2.33.1"
 
 [dependencies.pyo3]
 version = "0.8.5"
